@@ -33,13 +33,6 @@ def secondeEnTemps(seconde):
 # print(f"{temps[0]} jour, {temps[1]} heures, {temps[2]}  minutes, {temps[3]} secondes")
 
 
-""" Créer une fonction d'affichage d'un temps `afficheTemps`. Attention, les mots jour, 
-heure et seconde doivent être au pluriel s'il y en a plusieurs. S'il y en a zéro, 
-ils ne doivent pas apparaître.
-`print(message, end="")` permet de ne pas sauter une ligne après un print. 
-Vous pouvez écrire une fonction qui affiche un mot au pluriel ou non, appelée 
-ensuite plusieurs fois par `afficheTemps` pour simplifier votre code.
-"""
 
 # fonction qui va afficher d'un temps
 
@@ -57,4 +50,25 @@ def afficheTemps(temps):
    
 s = "s"
 liste = ["jour", "heure", "minute", "seconde"]
-afficheTemps((1,0,14,23))  
+# afficheTemps((1,0,14,23))  
+
+
+
+"""Ecrire une fonction qui demande à l'utilisateur de rentrer un nombre de jours, d'heures, de minutes et
+de secondes et qui renvoie un temps. Attention, si l'entrée utilisateur n'est pas correcte, par exemple 80 minutes,
+afficher un message d'erreur et s'arrêter.
+
+(Optionnel) Au lieu d'arêter le programme, demander de rentrer une nouvelle valeur, tant que 
+ce n'est pas une valeur correcte."""
+
+def demandeTemps():
+    i 
+    while i != 4:
+        reponse_utilisateur = input("Entrer un nombre de {liste[i]}")
+        i += 1
+
+i = 0
+liste = ["jour", "heure", "minute", "seconde"]
+afficheTemps(demandeTemps())
+
+
