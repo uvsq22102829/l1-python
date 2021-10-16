@@ -28,4 +28,4 @@ def secondeEnTemps(seconde):
     return seconde
 
 temps = secondeEnTemps(100000)
-print(temps[0],"jours", temps[1] ,"heures", temps[2] ,"minutes", temps[3] ,"secondes")
+print(f"{temps[0]} jour, {temps[1]} heures, {temps[2]}  minutes, {temps[3]} secondes")
