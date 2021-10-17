@@ -38,7 +38,7 @@ def secondeEnTemps(seconde):
 
 def afficheTemps(temps):
     for i in range(0, len(temps)):
-        if temps[i] >= 1 and temps[i] != 0:
+        if int(temps[i]) >= 1 and int(temps[i]) != 0:
             if temps[i] == 1:
                 a = liste[i] + " : " + str(temps[i])
             else:
@@ -50,25 +50,42 @@ def afficheTemps(temps):
    
 s = "s"
 liste = ["jour", "heure", "minute", "seconde"]
-# afficheTemps((1,0,14,23))  
+#afficheTemps((1,0,14,23))  
 
 
 
-"""Ecrire une fonction qui demande à l'utilisateur de rentrer un nombre de jours, d'heures, de minutes et
-de secondes et qui renvoie un temps. Attention, si l'entrée utilisateur n'est pas correcte, par exemple 80 minutes,
+"""Ecrire une fonction qui demande à l'utilisateur de rentrer un nombre 
+de jours, d'heures, de minutes et
+de secondes et qui renvoie un temps. Attention, si l'entrée
+ utilisateur n'est pas correcte, par exemple 80 minutes,
 afficher un message d'erreur et s'arrêter.
 
 (Optionnel) Au lieu d'arêter le programme, demander de rentrer une nouvelle valeur, tant que 
 ce n'est pas une valeur correcte."""
 
 def demandeTemps():
-    i 
-    while i != 4:
-        reponse_utilisateur = input("Entrer un nombre de {liste[i]}")
-        i += 1
+    j = 0
+    temps = []
+    while j != 4:
+        reponse_utilisateur = int(input(f"Entrer un nombre de {liste[j]}"))
+        if j == 1 and (reponse_utilisateur > 24 or reponse_utilisateur < 0):
+            while int(reponse_utilisateur) > 24 or int(reponse_utilisateur) < 0:
+                reponse_utilisateur = input(f"Pas une valeur correctre. Entrer un nombre de {liste_1[j]} compris entre 0 et 24 ")   
 
-i = 0
-liste = ["jour", "heure", "minute", "seconde"]
+        elif j == 2 and (reponse_utilisateur > 60 or reponse_utilisateur < 0):
+            while int(reponse_utilisateur) > 60 or int(reponse_utilisateur) < 0:
+                reponse_utilisateur = input(f"Pas une valeur correctre. Entrer un nombre de {liste_1[j]} compris entre 0 et 60 ")
+
+        elif j == 3 and (reponse_utilisateur > 60 or reponse_utilisateur < 0):
+            while int(reponse_utilisateur) > 60 or int(reponse_utilisateur) < 0:
+                reponse_utilisateur = input(f"Pas une valeur correctre. Entrer un nombre de {liste_1[j]} compris entre 0 et 60 ")
+        j += 1
+        temps.append(reponse_utilisateur)
+    return temps
+        
+
+
+liste_1 = ["jour(s)", "heure(s)", "minute(s)", "seconde(s)"]
 afficheTemps(demandeTemps())
 
 
