@@ -53,16 +53,6 @@ liste = ["jour", "heure", "minute", "seconde"]
 #afficheTemps((1,0,14,23))  
 
 
-
-"""Ecrire une fonction qui demande à l'utilisateur de rentrer un nombre 
-de jours, d'heures, de minutes et
-de secondes et qui renvoie un temps. Attention, si l'entrée
- utilisateur n'est pas correcte, par exemple 80 minutes,
-afficher un message d'erreur et s'arrêter.
-
-(Optionnel) Au lieu d'arêter le programme, demander de rentrer une nouvelle valeur, tant que 
-ce n'est pas une valeur correcte."""
-
 def demandeTemps():
     j = 0
     temps = []
@@ -84,8 +74,23 @@ def demandeTemps():
     return temps
         
 
-
 liste_1 = ["jour(s)", "heure(s)", "minute(s)", "seconde(s)"]
-afficheTemps(demandeTemps())
+#afficheTemps(demandeTemps())
+
+
+
+"""On veut être capable d'additionner deux temps. Donner une fonction qui fait ce calcul,
+en utilisant les fonctions précédentes."""
+def sommeTemps(temps1, temps2):
+    somme_temps = []
+    k = 0
+    while k != 4:
+        somme = temps1[k] + temps2[k]
+        somme_temps.append(somme)
+        k += 1
+    afficheTemps(somme_temps)
+    return somme_temps
+    
+sommeTemps((2,3,4,25),(5,22,57,1))
 
 
