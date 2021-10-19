@@ -23,7 +23,7 @@ def secondeEnTemps(seconde):
     reste_tps = reste_tps % 60
 
     secondes = reste_tps
-    seconde = (jour, heure, minute, secondes)  
+    seconde = [jour, heure, minute, secondes]  
     return seconde
 
 
@@ -35,7 +35,7 @@ def secondeEnTemps(seconde):
 
 # fonction qui va afficher un temps(jour, heure, minute, seconde)
 
-def afficheTemps(temps):
+def afficheTemps(temps,liste):
     for i in range(0, len(temps)):
         if int(temps[i]) >= 1 and int(temps[i]) != 0:
             if temps[i] == 1:
@@ -49,7 +49,7 @@ def afficheTemps(temps):
    
 s = "s"
 liste = ["jour", "heure", "minute", "seconde"]
-#afficheTemps((1,0,14,23))  
+afficheTemps((1,0,14,23),liste)  
 
 
 # def qui va demander à l'utilisateur d'entrée un temps. 
@@ -115,21 +115,27 @@ que le temps 0 est le 1 janvier 1970 à 00:00:00.
 
 def tempsEnDate(temps):
     annee = 1
-    nbr_annee = temps[0] 
-    while nbr_annee >= 365:
-        if nbr_annee >= 365:
-            nbr_annee -= 365
+    while temps[0] >= 365:
+        if temps[0] >= 365:
+            temps[0] -= 365
             annee += 1
-    temps = (annee, nbr_annee, temps[1], temps[2], temps[3])
+    tuple1 = (annee, temps[0])
+    print(f"tuple1 est {tuple1}")
     print(temps)
+    temps = temps + tuple1,
+    print(temps)
+    return temps
     
             
 
 def afficheDate(date = -1):
-    pass
+    liste_2 = ["annee", "jour", "heure", "minute", "seconde"]
+    date = afficheTemps(temps, liste_2)
+    return date
     
+
+
 temps = secondeEnTemps(1000000000)
 tempsEnDate(temps)
-
-#afficheDate(tempsEnDate(temps))
+afficheDate(tempsEnDate(temps))
 #afficheDate()
