@@ -114,12 +114,22 @@ que le temps 0 est le 1 janvier 1970 à 00:00:00.
 """
 
 def tempsEnDate(temps):
-    pass
+    
+    while int(temps[0]) >= 365:
+        if int(temps[0]) >= 365:
+            annee = +1
+    liste[i].insert("annee")
+    date = temps.insert(0,annee)
+    return date
+    
+
+        
 
 def afficheDate(date = -1):
     pass
     
 temps = secondeEnTemps(1000000000)
 afficheTemps(temps)
+tempsEnDate(temps)
 afficheDate(tempsEnDate(temps))
 afficheDate()
