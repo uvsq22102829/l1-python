@@ -5,7 +5,7 @@ def tempsEnSeconde(temps):
     return temps
 
 
-temps = (3, 23, 1, 34)
+#temps = (3, 23, 1, 34)
 # print(type(temps))
 # print(tempsEnSeconde(temps))   
 
@@ -114,14 +114,15 @@ que le temps 0 est le 1 janvier 1970 à 00:00:00.
 """
 
 def tempsEnDate(temps):
-
+    annee = 0
     afficheTemps(temps)
     while int(temps[0]) >= 365:
         if int(temps[0]) >= 365:
             annee = +1
+            temps[0] -= 365
     liste = liste[i].insert(0,"annee")
-    date = temps.insert(0,annee)
-    return date
+    temps = temps.insert(0,annee)
+    return temps
     
 
         
@@ -130,6 +131,10 @@ def afficheDate(date = -1):
     pass
     
 temps = secondeEnTemps(1000000000)
+print(temps[0])
+a = temps[0] - 365
+print(a)
 tempsEnDate(temps)
+
 #afficheDate(tempsEnDate(temps))
 #afficheDate()
