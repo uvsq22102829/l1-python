@@ -1,3 +1,5 @@
+import time
+
 # temps[0] : jours, temps[1]: heures, temps[2]: minutes, temps[3]: secondes
 # Renvoie la valeur en seconde de temps donné jour,heure,minute,secondes
 def tempsEnSeconde(temps):
@@ -35,7 +37,7 @@ def secondeEnTemps(seconde):
 
 # fonction qui va afficher un temps(jour, heure, minute, seconde)
 
-def afficheTemps(temps,liste):
+def afficheTemps(temps, liste):
     for i in range(0, len(temps)):
         if int(temps[i]) >= 1 and int(temps[i]) != 0:
             if temps[i] == 1:
@@ -107,6 +109,7 @@ def proportionTemps(temps, proportion):
 
 def tempsEnDate(temps):
     annee = 0
+    print(temps)
     while temps[0] >= 365:
         if temps[0] >= 365:
             temps[0] -= 365
@@ -123,8 +126,47 @@ def afficheDate(date = -1):
     date = afficheTemps(temps, liste_2)
     return date
     
+#temps = secondeEnTemps(1000000000)
+#tempsEnDate(temps)
+#afficheDate(tempsEnDate(temps))
+
+
+
+def bisextile(jour):
+    annee = 0
+    while jour >= 365:
+        if annee % 4 == 0:
+            jour -= 366
+            annee += 1
+        else:
+            jour -= 365
+            annee += 1
+    print(f"Le nombre d'année depuis le 1 er janvier 2020 est de {annee}")
+        
+#bisextile(20000)
+
+"""Implémenter une fonction `nombreBisextile` qui calcule le nombre d'années bisextiles 
+pour un nombre de jour donnés pour corriger votre fonction de calcul de la date."""
+
+def nombreBisextile(jour):
+    annee = 0
+    while temps[0] >= 365:
+        if temps[0] >= 365:
+            temps[0] -= 365
+            annee += 1
+            if annee % 4 == 0:
+                temps[1] += 1
+    if annee == 0:
+        return temps
+    else:
+        temps.insert(0, annee)
+        return temps
+
+def tempsEnDateBisextile(temps):
+    temps = afficheTemps(temps,liste_3)
+    return temps
+   
 temps = secondeEnTemps(1000000000)
-tempsEnDate(temps)
-afficheDate(tempsEnDate(temps))
-
-
+liste_3 = ["annee", "jour", "heure", "minute", "seconde"]
+afficheTemps(temps,liste_3)
+afficheDate(tempsEnDateBisextile(temps))
