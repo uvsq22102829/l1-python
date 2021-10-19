@@ -1,7 +1,6 @@
 # temps[0] : jours, temps[1]: heures, temps[2]: minutes, temps[3]: secondes
-
+# Renvoie la valeur en seconde de temps donné jour,heure,minute,secondes
 def tempsEnSeconde(temps):
-    # Renvoie la valeur en seconde de temps donné jour,heure,minute,secondes
     temps = temps[3] + (temps[2] * 60) + (temps[1] * 3600) + (temps[0] * (24 * 3600))
     return temps
 
@@ -10,10 +9,10 @@ temps = (3, 23, 1, 34)
 # print(type(temps))
 # print(tempsEnSeconde(temps))   
 
-
+# Renvoie le temps (jour, heure, minute, seconde) qui correspond au nombre de seconde passé en argument
 def secondeEnTemps(seconde):
 
-    # Renvoie le temps (jour, heure, minute, seconde) qui correspond au nombre de seconde passé en argument
+    
     jour = seconde // (3600 * 24)
     reste_tps = seconde % (3600 * 24)
 
@@ -34,7 +33,7 @@ def secondeEnTemps(seconde):
 
 
 
-# fonction qui va afficher d'un temps
+# fonction qui va afficher un temps(jour, heure, minute, seconde)
 
 def afficheTemps(temps):
     for i in range(0, len(temps)):
@@ -53,6 +52,7 @@ liste = ["jour", "heure", "minute", "seconde"]
 #afficheTemps((1,0,14,23))  
 
 
+# def qui va demander à l'utilisateur d'entrée un temps. 
 def demandeTemps():
     j = 0
     temps = []
@@ -79,8 +79,7 @@ liste_1 = ["jour(s)", "heure(s)", "minute(s)", "seconde(s)"]
 
 
 
-"""On veut être capable d'additionner deux temps. Donner une fonction qui fait ce calcul,
-en utilisant les fonctions précédentes."""
+# def qui va faire la somme de deux temps
 def sommeTemps(temps1, temps2):
     somme_temps = []
     k = 0
@@ -91,6 +90,36 @@ def sommeTemps(temps1, temps2):
     afficheTemps(somme_temps)
     return somme_temps
     
-sommeTemps((2,3,4,25),(5,22,57,1))
+#sommeTemps((2,3,4,25),(5,22,57,1))
 
 
+# def qui va calculer un pourcentage d'un temps. 
+def proportionTemps(temps, proportion):
+    temps = tempsEnSeconde(temps)
+    print(temps)
+    temps = proportion * temps
+    temps = secondeEnTemps(temps)
+    return temps
+
+
+afficheTemps(proportionTemps((2,0,36,0),0.2))
+
+
+"""On veut maintenant afficher un temps sous forme de date, en supposant 
+que le temps 0 est le 1 janvier 1970 à 00:00:00.
+
+* Implémenter une fonction `tempsEnDate`qui donne la date sous
+ la forme (année, jour, heure, minute, seconde).
+* Implémenter la fonction `afficheDate`qui affiche la date. 
+"""
+
+def tempsEnDate(temps):
+    pass
+
+def afficheDate(date = -1):
+    pass
+    
+temps = secondeEnTemps(1000000000)
+afficheTemps(temps)
+afficheDate(tempsEnDate(temps))
+afficheDate()
