@@ -49,7 +49,7 @@ def afficheTemps(temps,liste):
    
 s = "s"
 liste = ["jour", "heure", "minute", "seconde"]
-afficheTemps((1,0,14,23),liste)  
+#afficheTemps((1,0,14,23),liste)  
 
 
 # def qui va demander à l'utilisateur d'entrée un temps. 
@@ -105,37 +105,26 @@ def proportionTemps(temps, proportion):
 #afficheTemps(proportionTemps((2,0,36,0),0.2))
 
 
-"""On veut maintenant afficher un temps sous forme de date, en supposant 
-que le temps 0 est le 1 janvier 1970 à 00:00:00.
-
-* Implémenter une fonction `tempsEnDate`qui donne la date sous
- la forme (année, jour, heure, minute, seconde).
-* Implémenter la fonction `afficheDate`qui affiche la date. 
-"""
-
 def tempsEnDate(temps):
-    annee = 1
+    annee = 0
     while temps[0] >= 365:
         if temps[0] >= 365:
             temps[0] -= 365
             annee += 1
-    tuple1 = (annee, temps[0])
-    print(f"tuple1 est {tuple1}")
-    print(temps)
-    temps = temps + tuple1,
-    print(temps)
-    return temps
+    if annee == 0:
+        return temps
+    else:
+        temps.insert(0, annee)
+        return temps
     
             
-
 def afficheDate(date = -1):
     liste_2 = ["annee", "jour", "heure", "minute", "seconde"]
     date = afficheTemps(temps, liste_2)
     return date
     
-
-
 temps = secondeEnTemps(1000000000)
 tempsEnDate(temps)
 afficheDate(tempsEnDate(temps))
-#afficheDate()
+
+
