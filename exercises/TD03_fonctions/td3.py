@@ -148,7 +148,7 @@ def bisextile(jour):
 """Implémenter une fonction `nombreBisextile` qui calcule le nombre d'années bisextiles 
 pour un nombre de jour donnés pour corriger votre fonction de calcul de la date."""
 
-def nombreBisextile(jour):
+def nombreBisextile(jour):# pas le bon paramètre
     annee = 0
     while temps[0] >= 365:
         if temps[0] >= 365:
