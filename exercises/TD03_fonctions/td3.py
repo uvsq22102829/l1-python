@@ -148,19 +148,21 @@ def bisextile(jour):
 """Implémenter une fonction `nombreBisextile` qui calcule le nombre d'années bisextiles 
 pour un nombre de jour donnés pour corriger votre fonction de calcul de la date."""
 
-def nombreBisextile(jour):# pas le bon paramètre
-    annee = 0
-    while temps[0] >= 365:
-        if temps[0] >= 365:
-            temps[0] -= 365
-            annee += 1
-            if annee % 4 == 0:
-                temps[1] += 1
-    if annee == 0:
-        return temps
-    else:
-        temps.insert(0, annee)
-        return temps
+def nombreBisextile(jour):
+    annee_bissextile = 0
+    annee_bissextile_jour = 365 * 4 + 1
+    i = 0
+    while jour >= annee_bissextile_jour:
+        if i % 4 == 0:
+            jour -= annee_bissextile_jour
+            annee_bissextile += 1
+            i += 1
+    return annee_bissextile
+
+
+anne_bissextile_ = nombreBisextile(1461)
+print(anne_bissextile_)
+
 
 def tempsEnDateBisextile(temps):
     temps = afficheTemps(temps,liste_3)
@@ -168,5 +170,5 @@ def tempsEnDateBisextile(temps):
    
 temps = secondeEnTemps(1000000000)
 liste_3 = ["annee", "jour", "heure", "minute", "seconde"]
-afficheTemps(temps,liste_3)
-afficheDate(tempsEnDateBisextile(temps))
+#afficheTemps(temps,liste_3)
+#afficheDate(tempsEnDateBisextile(temps))
