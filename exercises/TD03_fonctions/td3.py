@@ -37,7 +37,7 @@ def secondeEnTemps(seconde):
 
 # fonction qui va afficher un temps(jour, heure, minute, seconde)
 
-def afficheTemps(temps, liste):
+def afficheTemps(temps):
     for i in range(0, len(temps)):
         if int(temps[i]) >= 1 and int(temps[i]) != 0:
             if temps[i] == 1:
@@ -51,7 +51,7 @@ def afficheTemps(temps, liste):
    
 s = "s"
 liste = ["jour", "heure", "minute", "seconde"]
-#afficheTemps((1,0,14,23),liste)  
+#afficheTemps((1,0,14,23))
 
 
 # def qui va demander à l'utilisateur d'entrée un temps. 
@@ -109,26 +109,26 @@ def proportionTemps(temps, proportion):
 
 def tempsEnDate(temps):
     annee = 0
-    print(temps)
     while temps[0] >= 365:
         if temps[0] >= 365:
             temps[0] -= 365
             annee += 1
     if annee == 0:
-        return temps
+        print(temps)
     else:
         temps.insert(0, annee)
-        return temps
+        print(temps)
     
             
 def afficheDate(date = -1):
-    liste_2 = ["annee", "jour", "heure", "minute", "seconde"]
-    date = afficheTemps(temps, liste_2)
+    date = afficheTemps(temps)
     return date
     
-#temps = secondeEnTemps(1000000000)
-#tempsEnDate(temps)
+temps = secondeEnTemps(1000000000)
+#afficheTemps(temps)
+tempsEnDate(temps)
 #afficheDate(tempsEnDate(temps))
+# afficheDate()
 
 
 
@@ -160,8 +160,8 @@ def nombreBisextile(jour):
     return annee_bissextile
 
 
-anne_bissextile_ = nombreBisextile(1461)
-print(anne_bissextile_)
+#anne_bissextile_ = nombreBisextile(1461)
+#print(anne_bissextile_)
 
 
 def tempsEnDateBisextile(temps):
