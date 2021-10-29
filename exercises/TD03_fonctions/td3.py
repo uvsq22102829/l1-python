@@ -7,9 +7,9 @@ def tempsEnSeconde(temps):
     return temps
 
 
-#temps = (3, 23, 1, 34)
-# print(type(temps))
-# print(tempsEnSeconde(temps))   
+temps = (3, 23, 1, 34)
+#print(type(temps))
+#print(tempsEnSeconde(temps))   
 
 # Renvoie le temps (jour, heure, minute, seconde) qui correspond au nombre de seconde passé en argument
 def secondeEnTemps(seconde):
@@ -89,6 +89,18 @@ def sommeTemps(temps1, temps2):
         somme = temps1[k] + temps2[k]
         somme_temps.append(somme)
         k += 1
+    while int(somme_temps[3]) > 60:
+        somme_temps[3] -= 60
+        somme_temps[2] += 1
+
+    while int(somme_temps[2]) > 60:
+        somme_temps[2] -= 60
+        somme_temps[1] += 1
+
+    while int(somme_temps[1]) > 24:
+        somme_temps[1] -= 24
+        somme_temps[0] += 1
+
     afficheTemps(somme_temps)
     return somme_temps
     
@@ -98,7 +110,6 @@ def sommeTemps(temps1, temps2):
 # def qui va calculer un pourcentage d'un temps. 
 def proportionTemps(temps, proportion):
     temps = tempsEnSeconde(temps)
-    print(temps)
     temps = proportion * temps
     temps = secondeEnTemps(temps)
     return temps
@@ -108,27 +119,47 @@ def proportionTemps(temps, proportion):
 
 
 def tempsEnDate(temps):
+    temps_0 = [70, 1, 0, 0, 0]
     annee = 0
     while temps[0] >= 365:
         if temps[0] >= 365:
             temps[0] -= 365
             annee += 1
-    if annee == 0:
-        print(temps)
-    else:
-        temps.insert(0, annee)
-        print(temps)
+
+    temps.insert(0, annee)
+    for i in range(0, 4):
+        a = temps[i]
+        b = temps[i]
+        temps[i] = a + b
+
+    while int(temps[3]) > 60:
+        temps[3] -= 60
+        temps[2] += 1
+
+    while int(temps[2]) > 60:
+        temps[2] -= 60
+        temps[1] += 1
+
+    while int(temps[1]) > 24:
+        temps[1] -= 24
+        temps[0] += 1
+    print(temps)
+    return temps
+    
     
             
 def afficheDate(date = -1):
-    date = afficheTemps(temps)
+    date = print(f"{temps[1]} 19{temps[0]}, ({temps[2]} : {temps[3]} : {temps[4]})")
     return date
     
+
+liste_2 = ["annee", "jour", "heure", "minute", "seconde"]
+
 temps = secondeEnTemps(1000000000)
 #afficheTemps(temps)
-tempsEnDate(temps)
+#tempsEnDate(temps)
 #afficheDate(tempsEnDate(temps))
-# afficheDate()
+#afficheDate()
 
 
 
@@ -141,7 +172,7 @@ def bisextile(jour):
         else:
             jour -= 365
             annee += 1
-    print(f"Le nombre d'année depuis le 1 er janvier 2020 est de {annee}")
+    print(f"Le nombre d'année bissextile depuis le 1 er janvier 2020 est de {annee}")
         
 #bisextile(20000)
 
@@ -156,13 +187,10 @@ def nombreBisextile(jour):
         if i % 4 == 0:
             jour -= annee_bissextile_jour
             annee_bissextile += 1
-            i += 1
+            i += 1            
     return annee_bissextile
 
-
-#anne_bissextile_ = nombreBisextile(1461)
-#print(anne_bissextile_)
-
+#nombreBisextile(1461)
 
 def tempsEnDateBisextile(temps):
     temps = afficheTemps(temps,liste_3)
@@ -170,5 +198,5 @@ def tempsEnDateBisextile(temps):
    
 temps = secondeEnTemps(1000000000)
 liste_3 = ["annee", "jour", "heure", "minute", "seconde"]
-#afficheTemps(temps,liste_3)
+afficheTemps(temps)
 #afficheDate(tempsEnDateBisextile(temps))
