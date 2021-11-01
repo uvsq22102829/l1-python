@@ -119,19 +119,17 @@ def proportionTemps(temps, proportion):
 
 
 def tempsEnDate(temps):
-    temps_0 = [70, 1, 0, 0, 0]
+    temps_0 = [1970, 1, 0, 0, 0]
     annee = 0
     while temps[0] >= 365:
         if temps[0] >= 365:
             temps[0] -= 365
             annee += 1
-
+    
+    
+    annee += 1970
     temps.insert(0, annee)
-    for i in range(0, 4):
-        a = temps[i]
-        b = temps[i]
-        temps[i] = a + b
-
+    
     while int(temps[3]) > 60:
         temps[3] -= 60
         temps[2] += 1
@@ -149,13 +147,13 @@ def tempsEnDate(temps):
     
             
 def afficheDate(date = -1):
-    date = print(f"{temps[1]} 19{temps[0]}, ({temps[2]} : {temps[3]} : {temps[4]})")
+    date = print(f"{temps[1]} {temps[0]}, ({temps[2]} : {temps[3]} : {temps[4]})")
     return date
     
 
 liste_2 = ["annee", "jour", "heure", "minute", "seconde"]
 
-temps = secondeEnTemps(1000000000)
+#temps = secondeEnTemps(1000000000)
 #afficheTemps(temps)
 #tempsEnDate(temps)
 #afficheDate(tempsEnDate(temps))
@@ -187,16 +185,20 @@ def nombreBisextile(jour):
         if i % 4 == 0:
             jour -= annee_bissextile_jour
             annee_bissextile += 1
-            i += 1            
+            i += 1       
+    print(annee_bissextile)   
     return annee_bissextile
 
 #nombreBisextile(1461)
 
 def tempsEnDateBisextile(temps):
-    temps = afficheTemps(temps,liste_3)
+    jour = temps[0]
+    nbr_annee = nombreBisextile(jour)
+    print(nbr_annee)
+    temps[0] += nbr_annee
+    temps = afficheDate(tempsEnDate(temps))
     return temps
    
 temps = secondeEnTemps(1000000000)
-liste_3 = ["annee", "jour", "heure", "minute", "seconde"]
 afficheTemps(temps)
-#afficheDate(tempsEnDateBisextile(temps))
+afficheDate(tempsEnDateBisextile(temps))
