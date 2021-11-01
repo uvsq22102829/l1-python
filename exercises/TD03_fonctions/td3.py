@@ -125,8 +125,7 @@ def tempsEnDate(temps):
         if temps[0] >= 365:
             temps[0] -= 365
             annee += 1
-    
-    
+ 
     annee += 1970
     temps.insert(0, annee)
     
@@ -143,9 +142,7 @@ def tempsEnDate(temps):
         temps[0] += 1
     print(temps)
     return temps
-    
-    
-            
+
 def afficheDate(date = -1):
     date = print(f"{temps[1]} {temps[0]}, ({temps[2]} : {temps[3]} : {temps[4]})")
     return date
@@ -196,7 +193,7 @@ def tempsEnDateBisextile(temps):
     nbr_annee = nombreBisextile(jour)
     print(nbr_annee)
     temps[0] += nbr_annee
-    temps = afficheDate(tempsEnDate(temps))
+    temps = tempsEnDate(temps)
     return temps
    
 temps = secondeEnTemps(1000000000)
