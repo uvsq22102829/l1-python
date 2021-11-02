@@ -1,12 +1,8 @@
-import time
-
-
 # temps[0] : jours, temps[1]: heures, temps[2]: minutes, temps[3]: secondes
 # Renvoie la valeur en seconde de temps donné jour,heure,minute,secondes
 def tempsEnSeconde(temps):
     temps = temps[3] + (temps[2] * 60) + (temps[1] * 3600) + (temps[0] * (24 * 3600))
     return temps
-
 
 temps = (3, 23, 1, 34)
 
@@ -68,8 +64,7 @@ def demandeTemps():
 
         elif j == 2 and (reponse_utilisateur > 60 or reponse_utilisateur < 0):
             while int(reponse_utilisateur) > 60 or int(reponse_utilisateur) < 0:
-                reponse_utilisateur = input(
-                    f"Pas une valeur correctre. Entrer un nombre de {liste_1[j]} compris entre 0 et 60 ")
+                reponse_utilisateur = input(f"Pas une valeur correctre.Entrer un nombre de {liste_1[j]} compris entre 0 et 60 ")
 
         elif j == 3 and (reponse_utilisateur > 60 or reponse_utilisateur < 0):
             while int(reponse_utilisateur) > 60 or int(reponse_utilisateur) < 0:
@@ -125,7 +120,6 @@ def proportionTemps(temps, proportion):
 
 
 def tempsEnDate(temps):
-    temps_0 = [1970, 1, 0, 0, 0]
     annee = 0
     while temps[0] >= 365:
         if temps[0] >= 365:
@@ -179,9 +173,6 @@ def bisextile(jour):
 
 # bisextile(20000)
 
-"""Implémenter une fonction `nombreBisextile` qui calcule le nombre d'années bisextiles 
-pour un nombre de jour donnés pour corriger votre fonction de calcul de la date."""
-
 
 def nombreBisextile(jour):
     annee_bissextile = 0
@@ -207,11 +198,52 @@ def tempsEnDateBisextile(temps):
     return temps
 
 
-temps = secondeEnTemps(1000000000)
-afficheTemps(temps)
-afficheDate(tempsEnDateBisextile(temps))
+#temps = secondeEnTemps(1000000000)
+#afficheTemps(temps)
+#afficheDate(tempsEnDateBisextile(temps))
 
 
 
+"""Donner une fonction qui vérifie la charge horaire d'un employé, donnée
+ sous forme d'une liste de temps travaillé chaque semaine dans un mois. 
+ Il ne faut pas dépasser 48h par semaine et 140h par mois (qu'on considère 
+ ici de 4 semaines).
+"""
+def semaine(j):
+    somme = 0
+    for i in range(0, len(liste_temps)):
+        somme += liste_temps[j][i]
+        print(somme)
+    return somme
+
+def verifie(liste_temps):
+    numero_semaine = 0
+    somme_mois = 0
+    for j in range(0, len(liste_temps)):
+        somme = semaine(j)
+        numero_semaine += 1
+        if somme > 48:
+            print(f"Travail de cette semaine {numero_semaine} supérieur à 48")
+        else:
+            print(f"Travail de cette semaine {numero_semaine} inférieur à 48")
+        somme_mois += somme
+        somme = 0
+    if somme_mois > 140:
+        print(f"Travail de ce mois supérieur à 140")
+    else:
+        print(f"Travail de ce mois inférieur à 140")
+        
+    
+#liste_temps = [[1,2,39,34],[0,1,9,4],[0,29,39,51],[0,31,13,46]]
+#verifie(liste_temps)
 
 
+def calculs(b,c):
+    a = 1
+    c = a * 2
+    return a + b
+
+a = 2
+c = 1
+b = calculs(3,4)
+print(a,b,c)
