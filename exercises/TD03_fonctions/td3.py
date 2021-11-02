@@ -210,3 +210,8 @@ def tempsEnDateBisextile(temps):
 temps = secondeEnTemps(1000000000)
 afficheTemps(temps)
 afficheDate(tempsEnDateBisextile(temps))
+
+
+
+
+
