@@ -1,5 +1,6 @@
 import time
 
+
 # temps[0] : jours, temps[1]: heures, temps[2]: minutes, temps[3]: secondes
 # Renvoie la valeur en seconde de temps donné jour,heure,minute,secondes
 def tempsEnSeconde(temps):
@@ -8,13 +9,13 @@ def tempsEnSeconde(temps):
 
 
 temps = (3, 23, 1, 34)
-#print(type(temps))
-#print(tempsEnSeconde(temps))   
+
+
+# print(type(temps))
+# print(tempsEnSeconde(temps))
 
 # Renvoie le temps (jour, heure, minute, seconde) qui correspond au nombre de seconde passé en argument
 def secondeEnTemps(seconde):
-
-    
     jour = seconde // (3600 * 24)
     reste_tps = seconde % (3600 * 24)
 
@@ -25,14 +26,12 @@ def secondeEnTemps(seconde):
     reste_tps = reste_tps % 60
 
     secondes = reste_tps
-    seconde = [jour, heure, minute, secondes]  
+    seconde = [jour, heure, minute, secondes]
     return seconde
-
 
 
 # temps = secondeEnTemps(100000)
 # print(f"{temps[0]} jour, {temps[1]} heures, {temps[2]}  minutes, {temps[3]} secondes")
-
 
 
 # fonction qui va afficher un temps(jour, heure, minute, seconde)
@@ -44,17 +43,19 @@ def afficheTemps(temps):
                 a = liste[i] + " : " + str(temps[i])
             else:
                 a = liste[i] + s + " : " + str(temps[i])
-            
+
             # end = "" permet de ne pas sauter de ligne après print
             print(a, end=" ")
-                
-   
+
+
 s = "s"
 liste = ["jour", "heure", "minute", "seconde"]
-#afficheTemps((1,0,14,23))
 
 
-# def qui va demander à l'utilisateur d'entrée un temps. 
+# afficheTemps((1,0,14,23))
+
+
+# def qui va demander à l'utilisateur d'entrée un temps.
 def demandeTemps():
     j = 0
     temps = []
@@ -62,23 +63,27 @@ def demandeTemps():
         reponse_utilisateur = int(input(f"Entrer un nombre de {liste[j]}"))
         if j == 1 and (reponse_utilisateur > 24 or reponse_utilisateur < 0):
             while int(reponse_utilisateur) > 24 or int(reponse_utilisateur) < 0:
-                reponse_utilisateur = input(f"Pas une valeur correctre. Entrer un nombre de {liste_1[j]} compris entre 0 et 24 ")   
+                reponse_utilisateur = input(
+                    f"Pas une valeur correctre. Entrer un nombre de {liste_1[j]} compris entre 0 et 24 ")
 
         elif j == 2 and (reponse_utilisateur > 60 or reponse_utilisateur < 0):
             while int(reponse_utilisateur) > 60 or int(reponse_utilisateur) < 0:
-                reponse_utilisateur = input(f"Pas une valeur correctre. Entrer un nombre de {liste_1[j]} compris entre 0 et 60 ")
+                reponse_utilisateur = input(
+                    f"Pas une valeur correctre. Entrer un nombre de {liste_1[j]} compris entre 0 et 60 ")
 
         elif j == 3 and (reponse_utilisateur > 60 or reponse_utilisateur < 0):
             while int(reponse_utilisateur) > 60 or int(reponse_utilisateur) < 0:
-                reponse_utilisateur = input(f"Pas une valeur correctre. Entrer un nombre de {liste_1[j]} compris entre 0 et 60 ")
+                reponse_utilisateur = input(
+                    f"Pas une valeur correctre. Entrer un nombre de {liste_1[j]} compris entre 0 et 60 ")
         j += 1
         temps.append(reponse_utilisateur)
     return temps
-        
+
 
 liste_1 = ["jour(s)", "heure(s)", "minute(s)", "seconde(s)"]
-#afficheTemps(demandeTemps())
 
+
+# afficheTemps(demandeTemps())
 
 
 # def qui va faire la somme de deux temps
@@ -103,11 +108,12 @@ def sommeTemps(temps1, temps2):
 
     afficheTemps(somme_temps)
     return somme_temps
-    
-#sommeTemps((2,3,4,25),(5,22,57,1))
 
 
-# def qui va calculer un pourcentage d'un temps. 
+# sommeTemps((2,3,4,25),(5,22,57,1))
+
+
+# def qui va calculer un pourcentage d'un temps.
 def proportionTemps(temps, proportion):
     temps = tempsEnSeconde(temps)
     temps = proportion * temps
@@ -115,7 +121,7 @@ def proportionTemps(temps, proportion):
     return temps
 
 
-#afficheTemps(proportionTemps((2,0,36,0),0.2))
+# afficheTemps(proportionTemps((2,0,36,0),0.2))
 
 
 def tempsEnDate(temps):
@@ -125,10 +131,10 @@ def tempsEnDate(temps):
         if temps[0] >= 365:
             temps[0] -= 365
             annee += 1
- 
+
     annee += 1970
     temps.insert(0, annee)
-    
+
     while int(temps[3]) > 60:
         temps[3] -= 60
         temps[2] += 1
@@ -143,19 +149,20 @@ def tempsEnDate(temps):
     print(temps)
     return temps
 
-def afficheDate(date = -1):
+
+def afficheDate(date=-1):
     date = print(f"{temps[1]} {temps[0]}, ({temps[2]} : {temps[3]} : {temps[4]})")
     return date
-    
+
 
 liste_2 = ["annee", "jour", "heure", "minute", "seconde"]
 
-#temps = secondeEnTemps(1000000000)
-#afficheTemps(temps)
-#tempsEnDate(temps)
-#afficheDate(tempsEnDate(temps))
-#afficheDate()
 
+# temps = secondeEnTemps(1000000000)
+# afficheTemps(temps)
+# tempsEnDate(temps)
+# afficheDate(tempsEnDate(temps))
+# afficheDate()
 
 
 def bisextile(jour):
@@ -168,34 +175,38 @@ def bisextile(jour):
             jour -= 365
             annee += 1
     print(f"Le nombre d'année bissextile depuis le 1 er janvier 2020 est de {annee}")
-        
-#bisextile(20000)
+
+
+# bisextile(20000)
 
 """Implémenter une fonction `nombreBisextile` qui calcule le nombre d'années bisextiles 
 pour un nombre de jour donnés pour corriger votre fonction de calcul de la date."""
+
 
 def nombreBisextile(jour):
     annee_bissextile = 0
     annee_bissextile_jour = 365 * 4 + 1
     i = 0
     while jour >= annee_bissextile_jour:
-        if i % 4 == 0:
+        if jour >= annee_bissextile_jour:
             jour -= annee_bissextile_jour
             annee_bissextile += 1
-            i += 1       
-    print(annee_bissextile)   
+            i += 1
+    print(annee_bissextile)
     return annee_bissextile
 
-nombreBisextile(1461)
+
+# nombreBisextile(1461)
 
 def tempsEnDateBisextile(temps):
     jour = temps[0]
+    print(jour)
     nbr_annee = nombreBisextile(jour)
-    print(nbr_annee)
     temps[0] += nbr_annee
     temps = tempsEnDate(temps)
     return temps
-   
+
+
 temps = secondeEnTemps(1000000000)
 afficheTemps(temps)
 afficheDate(tempsEnDateBisextile(temps))
