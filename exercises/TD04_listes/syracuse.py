@@ -10,7 +10,7 @@ def syracuse(n):
             liste.append(n)
     return liste
         
-print(syracuse(6))
+#print(syracuse(6))
 
 def testeConjecture(n_max):
     """ Teste la conjecture de Collatz pour toutes les valeurs de 2 à n_max """
@@ -23,8 +23,6 @@ def testeConjecture(n_max):
 #print(testeConjecture(10000))
 
 
-""" On appelle *temps de vol* de l’entier `n` le nombre d’étapes pour aller de `n` jusqu’à 1. Le temps de vol de 1 est 0, le temps de vol de 3 est 7. 
-Écrire une fonction qui, étant donné un paramètre `n`, renvoie son temps de vol."""
 
 def tempsVol(n):
     """ Retourne le temps de vol de n """
@@ -32,17 +30,36 @@ def tempsVol(n):
     temps_vol = len(suite_syracuse)
     return temps_vol
 
-print("Le temps de vol de", 6, "est", tempsVol(6))
+#print("Le temps de vol de", 6, "est", tempsVol(6))
 
-"""5. Ecrire une fonction qui, étant donné un paramètre `n_max` renvoie la liste 
-des temps de vol de tous 
-les entiers de 1 à `n_max`. *Indication*: utiliser une liste en compréhension."""
+"""Fonction qui, étant donné un paramètre `n_max` renvoie la liste |
+des temps de vol de tous les entiers de 1 à `n_max`."""
 
 def tempsVolListe(n_max):
     """ Retourne la liste de tous les temps de vol de 1 à n_max """
     liste_temps_vol = []
     for i in range(1, n_max + 1):
-        a = print(tempsVol(i))
+        a = tempsVol(i)
         liste_temps_vol.append(a)
+        
 
-print(tempsVolListe(100))
+    #max_val = max(liste_temps_vol) 
+    #print(liste_temps_vol.index(max(liste_temps_vol)))
+    
+    return liste_temps_vol
+
+#print(tempsVolListe(10000))
+
+
+def max_altitude(n):
+    liste = []
+    for i in range(1, n + 1):
+        liste_syracuse = syracuse(i)
+        max_val = max(liste_syracuse)
+        liste.append(max_val)
+  
+    val_max = max(liste)
+    return val_max
+
+#print(max_altitude(10000))
+
