@@ -25,14 +25,16 @@ def testLignesEgales(carre):
         j = 0 
         somme = 0
 
-        if (len(set(liste)) == 1):
-            return liste[0]
-        else:
-            return -1
+        
+    if liste.count(liste[0]) == len(liste):         
+        return liste[0]
+    else:
+        return -1
 
 
 #print(testLignesEgales(carre_mag))
-print(testLignesEgales(carre_pas_mag))
+#print("")
+#print(testLignesEgales(carre_pas_mag))
 
 
 def testColonnesEgales(carre):
@@ -48,10 +50,11 @@ def testColonnesEgales(carre):
         j = 0 
         somme = 0
 
-    if (len(set(liste)) == 1):
-            return liste[0]
-        else:
-            return -1
+    if liste.count(liste[0]) == len(liste):
+        return liste[0]
+    else:
+        return -1
 
-print(testColonnesEgales(carre_mag))
-print(testColonnesEgales(carre_pas_mag))
+#print(testColonnesEgales(carre_mag))
+#print("")
+#print(testColonnesEgales(carre_pas_mag))
