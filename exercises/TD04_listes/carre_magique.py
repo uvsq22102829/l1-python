@@ -103,7 +103,7 @@ def estCarreMagique(carre):
 
 
 
-"""9. Un carré d'ordre $n$ est *normal* s'il contient tous les entiers de 1 à $n^2$. 
+"""Un carré d'ordre n est *normal* s'il contient tous les entiers de 1 à $n^2$. 
 Ecrire une fonction qui teste si un carré est normal (pas nécessairement magique)."""
 
 def estNormal(carre):
@@ -113,13 +113,14 @@ def estNormal(carre):
     dans_la_liste = 0
     liste = []
     print(n)
-    for i in range(1, n ^ 2 + 1):
+    for i in range(1, (n ** 2) + 1):
         if i in carre:
-            dans_la_liste == 1
-            print(dans_la_liste)
-            liste.append(dans_la_liste)
-            
-    print(liste)
+            dans_la_liste += 1
+            print(dans_la_liste)    
+        
+        liste.append(dans_la_liste)
+        
+        print(liste)
     if (liste.count(liste[0]) == len(liste)):
         return True
     else:
@@ -128,4 +129,4 @@ def estNormal(carre):
 
 
 print(estNormal(carre_mag))
-print(estNormal(carre_pas_mag))
+#print(estNormal(carre_pas_mag))
