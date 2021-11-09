@@ -71,18 +71,61 @@ def testDiagonalesEgales(carre):
         somme += int(carre[ligne][colone])
         colone += 1
     liste.append(somme)
-    
-    for ligne in range(-1, -len(carre)):
-        colone = -1
+    colone = -1
+
+    for ligne in range(-1, -len(carre)-1, -1):
         somme_1 += int(carre[ligne][colone])
         colone -= 1
-    liste_2.append(somme)
- 
 
-    if liste.count(liste[0]) == len(liste) and liste.count(liste_2[0]) == len(liste_2):
-        return liste[0]
+    liste_2.append(somme_1)
+
+
+    if (liste.count(liste[0]) == len(liste)) and (liste_2.count(liste_2[0]) == len(liste_2)):
+        return liste_2[0]
     else:
         return -1
 
-print(testDiagonalesEgales(carre_mag))
+#print(testDiagonalesEgales(carre_mag))
 #print(testDiagonalesEgales(carre_pas_mag))
+
+
+
+def estCarreMagique(carre):
+    """ Renvoie True si c'est un carre magique et False sinon"""
+    if (testLignesEgales(carre) != -1) and (testColonnesEgales(carre) != -1) and (testDiagonalesEgales(carre) != -1):
+        print(testLignesEgales(carre), testColonnesEgales(carre), testDiagonalesEgales(carre))
+        return True
+    else:
+        return False
+
+#print(estCarreMagique(carre_mag))
+#print(estCarreMagique(carre_pas_mag))
+
+
+
+"""9. Un carré d'ordre $n$ est *normal* s'il contient tous les entiers de 1 à $n^2$. 
+Ecrire une fonction qui teste si un carré est normal (pas nécessairement magique)."""
+
+def estNormal(carre):
+    """ Retourne True si contient toutes les valeurs de 1 à n^2 où n est la taille 
+        du carré, et False sinon """
+    n = len(carre)
+    dans_la_liste = 0
+    liste = []
+    print(n)
+    for i in range(1, n ^ 2 + 1):
+        if i in carre:
+            dans_la_liste == 1
+            print(dans_la_liste)
+            liste.append(dans_la_liste)
+            
+    print(liste)
+    if (liste.count(liste[0]) == len(liste)):
+        return True
+    else:
+        return False
+
+
+
+print(estNormal(carre_mag))
+print(estNormal(carre_pas_mag))
