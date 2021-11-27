@@ -7,25 +7,35 @@ ecran.title("Mon dessin")
 ecran.geometry("600x600")
 ecran.configure(bg="grey")
 
-button_1 = tk.Button(ecran, text="Choisir une couleur", font = ("helvetica", "25"), bg="blue")
+color = "blue"
+def entrer_couleur():
+    global color
+    reponse_couleur = input("Entrer une couleur")
+    color = reponse_couleur
+
+
+
+button_1 = tk.Button(ecran, text="Choisir une couleur", font = ("helvetica", "25"), bg="blue",command=entrer_couleur)
 button_1.grid(row=0, column=1, columnspan=2, pady=5)
+
+
 
 def Carres():
     x0 = random.randint(0, (width-100))
     y0 = random.randint(0, (height-100))
-    carre = tk.Canvas.create_rectangle(fond_noir, (x0,y0), ((100 + x0), (100 + y0)), outline="red")
+    carre = tk.Canvas.create_rectangle(fond_noir, (x0,y0), ((100 + x0), (100 + y0)), outline=color)
 
 def Croixs():
     x0 = random.randint(0, (width-100))
     y0 = random.randint(0, (height-100))
     carre = tk.Canvas.create_rectangle(fond_noir, (x0,y0), ((100 + x0), (100 + y0)), fill="black")
-    ligne_1 = tk.Canvas.create_line(fond_noir, (x0, y0), ((x0 + 100), (y0 + 100)), fill="yellow")
-    ligne_2 = tk.Canvas.create_line(fond_noir, ((x0+100), y0), (x0, (y0 + 100)), fill="yellow")
+    ligne_1 = tk.Canvas.create_line(fond_noir, (x0, y0), ((x0 + 100), (y0 + 100)), fill=color)
+    ligne_2 = tk.Canvas.create_line(fond_noir, ((x0+100), y0), (x0, (y0 + 100)), fill=color)
 
 def Cercles():
     x0 = random.randint(0, (width-100))
     y0 = random.randint(0, (height-100))
-    cercle = tk.Canvas.create_oval(fond_noir, (x0, y0), ((100 + x0), (100 + y0)), outline="blue")
+    cercle = tk.Canvas.create_oval(fond_noir, (x0, y0), ((100 + x0), (100 + y0)), outline=color)
     
 
 
