@@ -13,19 +13,19 @@ button_1.grid(row=0, column=1, columnspan=2, pady=5)
 def Carres():
     x0 = random.randint(0, (width-100))
     y0 = random.randint(0, (height-100))
-    carre = tk.Canvas.create_rectangle(fond_noir, (x0,y0), ((100 + x0), (100 + y0)), fill="red")
+    carre = tk.Canvas.create_rectangle(fond_noir, (x0,y0), ((100 + x0), (100 + y0)), outline="red")
 
 def Croixs():
     x0 = random.randint(0, (width-100))
     y0 = random.randint(0, (height-100))
-    carre = tk.Canvas.create_rectangle(fond_noir, (x0,y0), ((100 + x0), (100 + y0)), fill="white")
+    carre = tk.Canvas.create_rectangle(fond_noir, (x0,y0), ((100 + x0), (100 + y0)), fill="black")
     ligne_1 = tk.Canvas.create_line(fond_noir, (x0, y0), ((x0 + 100), (y0 + 100)), fill="yellow")
     ligne_2 = tk.Canvas.create_line(fond_noir, ((x0+100), y0), (x0, (y0 + 100)), fill="yellow")
 
 def Cercles():
     x0 = random.randint(0, (width-100))
     y0 = random.randint(0, (height-100))
-    cercle = tk.Canvas.create_oval(fond_noir, (x0, y0), ((100 + x0), (100 + y0)), fill="blue")
+    cercle = tk.Canvas.create_oval(fond_noir, (x0, y0), ((100 + x0), (100 + y0)), outline="blue")
     
 
 
