@@ -16,7 +16,7 @@ def entrer_couleur():
 
 
 button_1 = tk.Button(ecran, text="Choisir une couleur", font = ("helvetica", "25"), bg="blue",command=entrer_couleur)
-button_1.grid(row=0, column=1, columnspan=2, pady=5)
+button_1.grid(row=0, column=1, pady=5)
 
 
 
@@ -47,6 +47,10 @@ button_3.grid(column=0, row=2, pady=10)
 
 button_4 = tk.Button(ecran, text="Croix", font=("helvetica", "25"), bg="red", fg="white", command=Croixs)
 button_4.grid(column=0, row=3, pady=10)
+
+button_5 = tk.Button(ecran, text="Undo", font = ("helvetica", "25"), bg="yellow")
+button_5.grid(row=0, column=2, pady=5, padx=5)
+ 
 
 fond_noir = tk.Canvas(ecran, bg="black", borderwidth=3, relief="groove", highlightbackground="white")
 fond_noir.grid(row=1, rowspan=3, column=1, columnspan=2, padx=5, pady=5)   
