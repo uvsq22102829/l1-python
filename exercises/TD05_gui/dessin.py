@@ -13,7 +13,7 @@ def entrer_couleur():
     reponse_couleur = input("Entrer une couleur")
     color = reponse_couleur
 
-
+objects = []
 
 button_1 = tk.Button(ecran, text="Choisir une couleur", font = ("helvetica", "25"), bg="blue",command=entrer_couleur)
 button_1.grid(row=0, column=1, pady=5)
