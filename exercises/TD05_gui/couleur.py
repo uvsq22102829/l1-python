@@ -10,25 +10,27 @@ def get_color(r, g, b):
 
 
 def draw_pixel(i, j, color):
-    canvas_2 = tk.Canvas.create_line(canvas, i, j, i, j, fill=color)
+    tk.Canvas.create_line(canvas, i, j, i+1, j+1, fill=color)
     
 
 def ecran_aleatoire():
+    # a = compteur de pixels
     a = 0
-    i = 0
-    j = 0
+    # i = ligne j = colone
+    ligne = 0
+    col = 0
     while a != (256 * 256):
-        while i != 256:
+        while col != 256:
             r = random.randint(0, 255)
             g = random.randint(0, 255)
             b = random.randint(0, 255)
             color = get_color(r, g, b)
-            draw_pixel(i, j, color)
-            i += 1
+            draw_pixel(ligne, col, color)
+            col += 1
             print(a)
             a += 1
-        i = 0
-        j +=1
+        col = 0
+        ligne += 1
 
     
 
@@ -43,9 +45,9 @@ button_2.grid(row = 1, column= 0, pady=20)
 button_3 = tk.Button(ecran, text="Dégradé 2D", fg="blue", bg="white", font=20)
 button_3.grid(row = 2, column= 0, pady=20)
 
-canvas = tk.Canvas(ecran, bg="black", height= 256, width=256)
+canvas = tk.Canvas(ecran, bg="black", height=256, width=256)
 canvas.grid(column = 1, row= 0, rowspan=3)
 
-draw_pixel(128, 128, (get_color(255,255,255)))
+#draw_pixel(24, 52, (get_color(255,255,255)))
 
 ecran.mainloop()
