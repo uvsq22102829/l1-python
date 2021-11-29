@@ -13,7 +13,10 @@ def entrer_couleur():
     reponse_couleur = input("Entrer une couleur")
     color = reponse_couleur
 
-#def undo():
+def undo():
+    global objects
+    if objects[-1] == Carres:
+        canvas.delete(Carres)
     
 
 
@@ -27,20 +30,26 @@ def Carres():
     x0 = random.randint(0, (width-100))
     y0 = random.randint(0, (height-100))
     carre = tk.Canvas.create_rectangle(fond_noir, (x0,y0), ((100 + x0), (100 + y0)), outline=color)
+    global objects
+    objects.append(carre)
     return carre
 
 def Croixs():
     x0 = random.randint(0, (width-100))
     y0 = random.randint(0, (height-100))
-    carre = tk.Canvas.create_rectangle(fond_noir, (x0,y0), ((100 + x0), (100 + y0)), fill="black")
     ligne_1 = tk.Canvas.create_line(fond_noir, (x0, y0), ((x0 + 100), (y0 + 100)), fill=color)
     ligne_2 = tk.Canvas.create_line(fond_noir, ((x0+100), y0), (x0, (y0 + 100)), fill=color)
-    return ligne_1, ligne_2, carre
+    global objects
+    objects.append(ligne_1) 
+    objects.append(ligne_2)
+    return ligne_1, ligne_2
 
 def Cercles():
     x0 = random.randint(0, (width-100))
     y0 = random.randint(0, (height-100))
     cercle = tk.Canvas.create_oval(fond_noir, (x0, y0), ((100 + x0), (100 + y0)), outline=color)
+    global objects
+    objects.append(cercle)
     return cercle
     
 
@@ -69,6 +78,9 @@ width = fond_noir.winfo_width()
 height = fond_noir.winfo_height()
 
 objects = []
-objects.append()
+print(objects)
 
+
+
+print(objects)
 ecran.mainloop()
