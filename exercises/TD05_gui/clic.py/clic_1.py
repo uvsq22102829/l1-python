@@ -14,8 +14,8 @@ def pixel(event):
     g = 0
     b = 0
     color = get_color(r, g, b)
-    event.x = color
-    event.y = color 
+    ligne = tk.Canvas.create_line(canvas,event.x,event.y,(event.x + 1),(event.y + 1), fill=color)
+    
 
 canvas = tk.Canvas(ecran, height=500, width=500, bg="black")
 canvas.grid()
