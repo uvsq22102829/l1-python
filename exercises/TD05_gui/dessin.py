@@ -79,8 +79,4 @@ height = fond_noir.winfo_height()
 
 objects = []
 print(objects)
-
-
-
-print(objects)
 ecran.mainloop()
