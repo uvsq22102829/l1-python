@@ -29,7 +29,7 @@ canvas.grid()
 
 ligne_blanche = tk.Canvas.create_line(canvas, 250, 0, 250, 500, fill="white")
 
-canvas.bind("<Button-1>", pixel)
+canvas.bind("<Button-3>", pixel)
 canvas.bind("<Button-1>", cercle)
 
 ecran.mainloop()
