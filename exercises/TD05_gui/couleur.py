@@ -40,17 +40,58 @@ def degrade_gris():
     ligne = 0
     col = 0
     while a != (256 * 256):
-        while col != 256:
-            r = 
-            g = 
-            b = 
+        while ligne != 256:
+            r = (0 + ligne)
+            g = (0 + ligne) 
+            b = (0 + ligne)
             color = get_color(r, g, b)
             draw_pixel(ligne, col, color)
-            col += 1
+            ligne += 1
             print(a)
             a += 1
-        col = 0
-        ligne += 1
+        ligne = 0
+        col += 1
+
+
+def degrade_2D():
+   # a = compteur de pixels
+    a = 0
+    i = 0
+    # i = ligne j = colone
+    ligne = 0
+    col = 256
+    r = (0 + i)
+    g = (0) 
+    b = (255 - i)
+    color = get_color(r, g, b)
+    draw_pixel(ligne, col, color)
+    i = 1
+    while a != (256 * 256):
+        while col != 256:
+            r = (0 + i)
+            g = (0) 
+            b = (255 - i)
+            color = get_color(r, g, b)
+            draw_pixel(ligne, col, color)
+            print(a)
+            ligne += 1
+            a += 1
+            i += 1
+        col -= 1
+        ligne = 0
+
+
+
+
+
+
+
+
+
+
+        
+    
+  
     
 
 
@@ -60,7 +101,7 @@ button_1.grid(row = 0, column=0, pady=20)
 button_2 = tk.Button(ecran, text="Dégradé gris", fg="blue", bg="white", font=20, command=degrade_gris)
 button_2.grid(row = 1, column= 0, pady=20)
 
-button_3 = tk.Button(ecran, text="Dégradé 2D", fg="blue", bg="white", font=20)
+button_3 = tk.Button(ecran, text="Dégradé 2D", fg="blue", bg="white", font=20, command=degrade_2D)
 button_3.grid(row = 2, column= 0, pady=20)
 
 canvas = tk.Canvas(ecran, bg="black", height=256, width=256)
