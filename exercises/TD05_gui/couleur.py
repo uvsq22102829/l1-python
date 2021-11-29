@@ -33,13 +33,31 @@ def ecran_aleatoire():
         ligne += 1
 
     
-
+def degrade_gris():
+    # a = compteur de pixels
+    a = 0
+    # i = ligne j = colone
+    ligne = 0
+    col = 0
+    while a != (256 * 256):
+        while col != 256:
+            r = 
+            g = 
+            b = 
+            color = get_color(r, g, b)
+            draw_pixel(ligne, col, color)
+            col += 1
+            print(a)
+            a += 1
+        col = 0
+        ligne += 1
+    
 
 
 button_1 = tk.Button(ecran, text="Aléatoire", fg="blue", bg="white", font=(20), command=ecran_aleatoire)
 button_1.grid(row = 0, column=0, pady=20)
 
-button_2 = tk.Button(ecran, text="Dégradé gris", fg="blue", bg="white", font=20)
+button_2 = tk.Button(ecran, text="Dégradé gris", fg="blue", bg="white", font=20, command=degrade_gris)
 button_2.grid(row = 1, column= 0, pady=20)
 
 button_3 = tk.Button(ecran, text="Dégradé 2D", fg="blue", bg="white", font=20)
