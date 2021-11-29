@@ -13,7 +13,10 @@ def entrer_couleur():
     reponse_couleur = input("Entrer une couleur")
     color = reponse_couleur
 
-objects = []
+#def undo():
+    
+
+
 
 button_1 = tk.Button(ecran, text="Choisir une couleur", font = ("helvetica", "25"), bg="blue",command=entrer_couleur)
 button_1.grid(row=0, column=1, pady=5)
@@ -24,6 +27,7 @@ def Carres():
     x0 = random.randint(0, (width-100))
     y0 = random.randint(0, (height-100))
     carre = tk.Canvas.create_rectangle(fond_noir, (x0,y0), ((100 + x0), (100 + y0)), outline=color)
+    return carre
 
 def Croixs():
     x0 = random.randint(0, (width-100))
@@ -31,11 +35,13 @@ def Croixs():
     carre = tk.Canvas.create_rectangle(fond_noir, (x0,y0), ((100 + x0), (100 + y0)), fill="black")
     ligne_1 = tk.Canvas.create_line(fond_noir, (x0, y0), ((x0 + 100), (y0 + 100)), fill=color)
     ligne_2 = tk.Canvas.create_line(fond_noir, ((x0+100), y0), (x0, (y0 + 100)), fill=color)
+    return ligne_1, ligne_2, carre
 
 def Cercles():
     x0 = random.randint(0, (width-100))
     y0 = random.randint(0, (height-100))
     cercle = tk.Canvas.create_oval(fond_noir, (x0, y0), ((100 + x0), (100 + y0)), outline=color)
+    return cercle
     
 
 
@@ -48,7 +54,7 @@ button_3.grid(column=0, row=2, pady=10)
 button_4 = tk.Button(ecran, text="Croix", font=("helvetica", "25"), bg="red", fg="white", command=Croixs)
 button_4.grid(column=0, row=3, pady=10)
 
-button_5 = tk.Button(ecran, text="Undo", font = ("helvetica", "25"), bg="yellow")
+button_5 = tk.Button(ecran, text="Undo", font = ("helvetica", "25"), bg="yellow", command=undo)
 button_5.grid(row=0, column=2, pady=5, padx=5)
  
 
@@ -61,5 +67,8 @@ fond_noir.update()
 width = fond_noir.winfo_width() 
 # Récupére la hauteur
 height = fond_noir.winfo_height()
+
+objects = []
+objects.append()
 
 ecran.mainloop()
