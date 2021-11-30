@@ -54,15 +54,44 @@ def pixel(event):
     ligne = tk.Canvas.create_line(canvas, (event.x),(event.y), (event.x + 1), (event.y + 1), fill=color)
     
 
+def cercle_couleur(event):
+    global clique
+    global liste
+    clique += 1
+    for i in range(0, 9):
+        cercle_rouge = tk.Canvas.create_oval(canvas, (event.x - 50), (event.y - 50),(event.x + 50), (event.y + 50), outline="red")
+        liste.append(cercle_rouge)
+
+
+    if clique == 9:
+        for item in canvas.find_all():
+            if canvas.type(item) == 'oval':
+                canvas.itemconfig(item, outline='yellow')
+        #for i in range(0, 9):
+        #canvas.itemconfig(liste[i], outline="yellow")
+         
+    elif clique == 10:
+        for item in canvas.find_all():
+            if canvas.type(item) == 'oval':
+                canvas.delete(item)
+                clique = 0
+        #for i in range(0, 9):
+         #   canvas.delete(liste[i])
+         #   clique = 0
+        
+
+
 canvas = tk.Canvas(ecran, height=500, width=500, bg="black")
 canvas.grid()
 
-carre = tk.Canvas.create_rectangle(canvas, 100, 100, 400, 400, fill="white")
+#carre = tk.Canvas.create_rectangle(canvas, 100, 100, 400, 400, fill="white")
 
 #ligne_blanche = tk.Canvas.create_line(canvas, 250, 0, 250, 500, fill="white")
-canvas.bind("<Button>", forme_aleatoire)
+#canvas.bind("<Button>", forme_aleatoire)
 #canvas.bind("<Button-3>", pixel)
 #canvas.bind("<Button-1>", cercle)
+canvas.bind("<Button>", cercle_couleur)
+
 cpt_bleue = 0
 cpt_rouge = 0
 clique = 0
