@@ -9,10 +9,31 @@ def get_color(r, g, b):
     return '#{:02x}{:02x}{:02x}'.format(r, g, b)
 
 def cercle(event):
+    global cpt_rouge
+    global cpt_bleue
+    global liste
+    global liste_1
     if event.x > 250:
-        cercle_1 = tk.Canvas.create_oval(canvas,(event.x - 50), (event.y - 50),(event.x + 50), (event.y + 50), outline="red") 
+        liste.append(event.x)
+        liste.append(event.y)
+        cercle_1 = tk.Canvas.create_oval(canvas, (event.x - 50), (event.y - 50), (event.x + 50), (event.y + 50), outline="red") 
+        cpt_rouge += 1
+    
+        if cpt_rouge == 2:
+            ligne_rouge = tk.Canvas.create_line(canvas, liste[0], liste[1], liste[2], liste[3], fill="red")
+            cpt_rouge = 0
+            liste.clear()
+              
     else:
-        cercle_1 = tk.Canvas.create_oval(canvas,(event.x - 50), (event.y - 50),(event.x + 50), (event.y + 50), outline="blue") 
+        liste_1.append(event.x)
+        liste_1.append(event.y)
+        cercle_1 = tk.Canvas.create_oval(canvas, (event.x - 50), (event.y - 50),(event.x + 50), (event.y + 50), outline="blue") 
+        cpt_bleue += 1
+
+        if cpt_bleue == 2:
+            ligne_bleue = tk.Canvas.create_line(canvas, liste_1[0], liste_1[1], liste_1[2], liste_1[3], fill="blue")
+            cpt_bleue = 0
+            liste_1.clear()
 
 
 
@@ -31,5 +52,9 @@ ligne_blanche = tk.Canvas.create_line(canvas, 250, 0, 250, 500, fill="white")
 
 canvas.bind("<Button-3>", pixel)
 canvas.bind("<Button-1>", cercle)
+cpt_bleue = 0
+cpt_rouge = 0
+liste = []
+liste_1 = []
 
 ecran.mainloop()
