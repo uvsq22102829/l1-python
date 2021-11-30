@@ -35,6 +35,15 @@ def cercle(event):
             cpt_bleue = 0
             liste_1.clear()
 
+def forme_aleatoire(event):
+    global clique
+    clique += 1
+    if clique == 10:
+        ecran.destroy()
+    if (clique % 2) != 0:
+        canvas.itemconfigure(carre, fill="grey") 
+    else:
+        canvas.itemconfigure(carre, fill="white") 
 
 
 def pixel(event):
@@ -42,18 +51,21 @@ def pixel(event):
     g = 0
     b = 0
     color = get_color(r, g, b)
-    ligne = tk.Canvas.create_line(canvas, (event.x),(event.y),(event.x + 1),(event.y + 1), fill=color)
+    ligne = tk.Canvas.create_line(canvas, (event.x),(event.y), (event.x + 1), (event.y + 1), fill=color)
     
 
 canvas = tk.Canvas(ecran, height=500, width=500, bg="black")
 canvas.grid()
 
-ligne_blanche = tk.Canvas.create_line(canvas, 250, 0, 250, 500, fill="white")
+carre = tk.Canvas.create_rectangle(canvas, 100, 100, 400, 400, fill="white")
 
-canvas.bind("<Button-3>", pixel)
-canvas.bind("<Button-1>", cercle)
+#ligne_blanche = tk.Canvas.create_line(canvas, 250, 0, 250, 500, fill="white")
+canvas.bind("<Button>", forme_aleatoire)
+#canvas.bind("<Button-3>", pixel)
+#canvas.bind("<Button-1>", cercle)
 cpt_bleue = 0
 cpt_rouge = 0
+clique = 0
 liste = []
 liste_1 = []
 
