@@ -64,20 +64,20 @@ def cercle_couleur(event):
 
 
     if clique == 9:
-        for item in canvas.find_all():
-            if canvas.type(item) == 'oval':
-                canvas.itemconfig(item, outline='yellow')
-        #for i in range(0, 9):
-        #canvas.itemconfig(liste[i], outline="yellow")
+        #for item in canvas.find_all():
+           # if canvas.type(item) == 'oval':
+           #     canvas.itemconfig(item, outline='yellow')
+        for elt in liste:
+            canvas.itemconfig(liste[elt], outline="yellow")
          
     elif clique == 10:
-        for item in canvas.find_all():
-            if canvas.type(item) == 'oval':
-                canvas.delete(item)
-                clique = 0
-        #for i in range(0, 9):
-         #   canvas.delete(liste[i])
-         #   clique = 0
+        #for item in canvas.find_all():
+            #if canvas.type(item) == 'oval':
+                #canvas.delete(item)
+                #clique = 0
+        for elt in range(0,len(liste)):
+            canvas.delete(liste[elt])
+            clique = 0
         
 
 
