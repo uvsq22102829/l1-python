@@ -75,7 +75,7 @@ def cercle_couleur(event):
             #if canvas.type(item) == 'oval':
                 #canvas.delete(item)
                 #clique = 0
-        for elt in range(0,len(liste)):
+        for elt in range(0, len(liste)):
             canvas.delete(liste[elt])
             clique = 0
         
