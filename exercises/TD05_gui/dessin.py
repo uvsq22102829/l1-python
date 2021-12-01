@@ -18,7 +18,7 @@ def undo():
     global objects
     if len(objects) != 0:
         print(objects)
-        for item in fond_noir.find_all():
+        for item in fond_noir:
             if fond_noir.type(item) == "line":
                 fond_noir.delete(objects[-2:])
             fond_noir.delete(objects[-1])
