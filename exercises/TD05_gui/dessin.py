@@ -18,10 +18,11 @@ def undo():
     global objects
     if len(objects) != 0:
         print(objects)
-        if fond_noir.type(item) == "line":
-            fond_noir.delete(objects[-2:])
-        fond_noir.delete(objects[-1])
-        del objects[-1]
+        for item in fond_noir.find_all():
+            if fond_noir.type(item) == "line":
+                fond_noir.delete(objects[-2:])
+            fond_noir.delete(objects[-1])
+            del objects[-1]
     else:
         print("Pas d'élément à supprimer")
     
