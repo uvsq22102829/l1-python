@@ -17,10 +17,12 @@ def entrer_couleur():
 def undo():
     global objects
     if len(objects) != 0:
-        print(objects)
-        for item in fond_noir:
-            if fond_noir.type(item) == "line":
-                fond_noir.delete(objects[-2:])
+        if fond_noir.type(objects[-1]) == "line":
+            fond_noir.delete(objects[-1])
+            del objects[-1]
+            fond_noir.delete(objects[-1])
+            del objects[-1]
+        else:
             fond_noir.delete(objects[-1])
             del objects[-1]
     else:
