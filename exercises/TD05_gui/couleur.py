@@ -56,43 +56,24 @@ def degrade_gris():
 def degrade_2D():
    # a = compteur de pixels
     a = 0
-    i = 0
     # i = ligne j = colone
     ligne = 0
-    col = 256
-    r = (0 + i)
-    g = (0) 
-    b = (255 - i)
-    color = get_color(r, g, b)
-    draw_pixel(ligne, col, color)
-    i = 1
+    col = 0
     while a != (256 * 256):
-        while col != 256:
-            r = (0 + i)
-            g = (0) 
-            b = (255 - i)
+        while ligne != 256:
+            r = (0 + a)
+            g = 0 
+            b = (255 - a)
             color = get_color(r, g, b)
             draw_pixel(ligne, col, color)
-            print(a)
             ligne += 1
             a += 1
-            i += 1
-        col -= 1
         ligne = 0
-
-
-
-
-
-
-
-
-
-
-        
+        col += 1
     
-  
-    
+
+
+
 
 
 button_1 = tk.Button(ecran, text="Aléatoire", fg="blue", bg="white", font=(20), command=ecran_aleatoire)
